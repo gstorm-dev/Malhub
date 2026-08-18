@@ -1,0 +1,31 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+
+  <input type="text" id="search" placeholder="Search...">
+
+<button onclick="searchText()">Search</button>
+
+<div id="recent"></div>
+
+<script>
+  let search = document.getElementById("search");
+  let recent = document.getElementById("recent");
+
+  let searches = [];
+
+  function searchText() {
+    searches.push(search.value);
+
+    recent.innerHTML = searches.join("<br>");
+
+    search.value = "";
+  }
+</script>
+</body>
+</html>

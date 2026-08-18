@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To do</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen">
+  
+
+    <div class="bg-white p-8 rounded-2xl shadow-xl w-96 pb-10">
+
+      <h1 class="text-3xl font-bold mb-6 text-gray-800 text-center">
+        To-Do List
+      </h1>
+
+      <form id="taskForm" class="flex gap-4">
+        <input id="taskInput" type="text" placeholder="Add a task..." 
+        class="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition">
+          Add
+        </button>
+      </form>
+
+      <ul id="taskList" class="space-y-2 mt-4">
+
+      </ul>
+  </div>
+
+
+  <script>
+
+    let form = document.getElementById("taskForm");
+
+
+
+
+    let input = document.getElementById("taskInput");
+    let list = document.getElementById("taskList")
+
+
+    form.addEventListener("submit", function (event) {
+
+      // This keep it from doing the browser from doing it's normal form submission.
+
+      event.preventDefault();
+
+
+      // This get whatever is type into the input.
+      // trim() removes unnecessary spaces from the beginning and end. especially useful for checking if someone entered only spaces.
+
+      let taskText = input.value.trim();
+
+
+      // If the user didn't type anything, stop. Don't add an empty task.
+
+      if (taskText === "") {
+        return;
+      }
+
+      // This calls another function named addTask.
+      // The addTask() function then takes that text and puts it into the task list.
+
+      // it can only works if you're using a method called hoist.
+
+      addTask(taskText);
+
+      // Clear the input so it's ready for the next task
+      
+      input.value = "";
+
+      // This puts the cursor back inside the input for faster use.
+
+      input.focus(); 
+    });
+
+
+    function addTask(text) {
+
+      // This creates a new HTML element (li).
+
+      let item = document.createElement("li");
+      item.className = "flex justify-between items-center bg-gray-50 px-3 py-2 rounded-lg";
+
+      
+      let span = document.createElement("span");
+      span.textContent = text;
+      span.className = "text-gray-800";
+
+      let deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "✕";
+      deleteBtn.className = "text-red-500 hover:text-red-700 font-bold";
+
+
+      // Listen for a click on the delete button.
+      // remove(); this removes the <li> from the page.
+      
+      deleteBtn.addEventListener("click", function() {
+        item.remove();
+      });
+
+
+      span.addEventListener("click", function() {
+        span.classList.toggle("line-through");
+        span.classList.toggle("text-gray-400");
+      });
+
+
+      // This put the elements together.
+
+        item.appendChild(span);
+        item.appendChild(deleteBtn);
+
+        list.appendChild(item);
+
+    }
+
+    function addidtion (color) {
+      document.body.style.backgroundColor = color
+    };
+
+    addidtion('black')
+  </script>
+</body>
+</html>

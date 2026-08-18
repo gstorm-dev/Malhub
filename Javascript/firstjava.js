@@ -2,12 +2,24 @@
 
 //declaring a variable
 let name = "John Doe";
+let g = '';
+console.log('Go and Play Football')
 
 console.log(name)
 
 let age = 19
 
 console.log('age is', age)
+
+let data = 'mobile'
+let unkn = 'lost'
+let all = "my" +' '+ data +" "+ "is" +" "+ unkn 
+console.log(all)
+
+let you = '';
+you = 'mr'
+console.log(you)
+
 
 
 //concatenation

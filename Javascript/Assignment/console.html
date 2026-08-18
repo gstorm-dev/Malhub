@@ -1,0 +1,46 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>console</title>
+</head>
+<body>
+  
+
+  <script>
+
+    let firstName = 'Glory Samson';
+    let lastName = 'Bamiteko';
+    let age = 19;
+
+    let isStudent = firstName + ' ' + lastName + ' ' + "is" + ' ' + age + ' ' + "years old and i'm a student"
+
+    console.log(isStudent)
+
+
+
+    if (age > 18) {
+      console.log("You can vote")
+    } else {
+      console.log("You cannot vote yet")
+    }
+
+    let hasTicket = true;
+    let hasId = true;
+    
+    if (hasTicket && hasId) {
+      console.log('Allowed in.')
+    } else {
+      console.log('Not Allowed.')
+    }
+
+    function greetUser(name) {
+      return "Welcome," + ' ' + name + ' ' + "!"
+    }
+
+    console.log(greetUser('Glory'));
+    console.log(greetUser('Samson'))
+    console.log(greetUser('Bamiteko'));
+  </script>
+</body>
+</html>

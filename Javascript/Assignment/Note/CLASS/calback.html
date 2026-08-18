@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calback</title>
+</head>
+<body>
+
+  <div>
+    
+    <input type="email" id="inputTask">
+    <button id="clickBtn">Click me</button>
+    <p id="status"></p>
+  </div>
+  
+  <script>
+
+    function userInput(name) {
+    document.getElementById('status').textContent = `Good morning ${name}!`;
+  }
+
+   document.getElementById('clickBtn').addEventListener("click", function () {
+    const name = document.getElementById('inputTask').value || 'buddy';
+    userInput(name);
+  });
+  </script>
+</body>
+</html>

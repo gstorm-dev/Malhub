@@ -1,0 +1,39 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buttons</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  
+  <div class="flex flex-col items-center justify-center gap-4 w-[300px] mx-auto rounded-xl p-4 mt-10 bg-slate-800">
+    <h1 class="text-[30px] font-bold text-white">Color Changer</h1>
+    <p class="text-[10px] text-white text-center">Click the buttons below to change the background color provided by JavaScript.</p>
+    <button class="bg-black text-white px-4 py-2 rounded hover:bg-gray-700 cursor-pointer" id="blackBtn" onclick="
+      changeColor('black')
+    ">Black</button>
+    <button class="bg-white text-black px-4 py-2 rounded hover:bg-gray-300 cursor-pointer" id="whiteBtn" onclick="
+      changeColor('white')
+    ">White</button>
+    <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 cursor-pointer" id="redBtn" onclick="
+      changeColor('red')
+    ">Red</button>
+    <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer" id="blueBtn" onclick="
+      changeColor('blue')
+    ">Blue</button>
+
+    <button class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 cursor-pointer" id="purpleBtn" onclick="
+      changeColor('purple')
+    ">Purple</button>
+  </div>
+  
+  <script>
+
+    function changeColor(color) {
+      document.body.style.backgroundColor = color;
+    }
+
+  </script>
+</body>
+</html>

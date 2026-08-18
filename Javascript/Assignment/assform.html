@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To do</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+</head>
+<body class="flex justify-center items-center min-h-screen">
+  
+
+    <div class="p-8 rounded-2xl shadow-xl w-96 pb-10 bg-gray-100 max-sm:w-80">
+
+      <div class="text-center mb-6">
+        <h1 class="text-3xl font-bold mb-6 text-gray-800">
+         Quote List
+      </h1>
+
+      <p class="text-gray-600 mt-2">Add your favorite quotes</p>
+      </div>
+      
+
+      <form id="taskForm" class="flex gap-4">
+        <input id="taskInput" type="text" placeholder="Enter a quote..." 
+        class="flex-1 border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-1 focus:ring-indigo-500">
+
+        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition cursor-pointer">
+          Add
+        </button>
+      </form>
+
+      <ul id="taskList" class="space-y-2 mt-4">
+
+      </ul>
+  </div>
+
+
+  <script>
+
+    let form = document.getElementById("taskForm");
+
+    let input = document.getElementById("taskInput");
+    let list = document.getElementById("taskList");
+
+    form.addEventListener("submit", (task) => {
+      task.preventDefault();
+      
+      let taskText = input.value.trim();
+
+      if (taskText === "") {
+        return;
+      };
+
+      addTask(taskText);
+
+      input.value = "";
+
+      input.focus();
+    });
+
+
+    function addTask(text) {
+
+      let item = document.createElement("li");
+      item.className = "flex justify-between items-center px-3 py-2 rounded-lg shadow-sm bg-white hover:shadow-md transition cursor-pointer";
+
+      let span = document.createElement("span");
+      span.textContent = text;
+      span.className = "text-gray-800";
+
+      let deleteButton = document.createElement("button");
+      deleteButton.textContent = "✕";
+      deleteButton.className = "text-red-500 hover:text-red-700 font-bold cursor-pointer bg-red-100 px-2 rounded-sm";
+
+
+      deleteButton.addEventListener("click", () => {
+       item.remove();
+      });
+
+      item.addEventListener("click", () => {
+        span.classList.toggle("italic");
+        span.classList.toggle("line-through")
+      })
+
+      item.appendChild(span);
+      item.appendChild(deleteButton);
+
+      list.appendChild(item);
+      };
+
+  </script>
+  </body>

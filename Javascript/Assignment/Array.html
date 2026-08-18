@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array</title>
+</head>
+<body>
+  
+
+  <script>
+
+          const games = [
+        {
+          id: 1,
+          name: "God of War",
+          price: 30000,
+          available: true
+        },
+        {
+          id: 2,
+          name: "GTA V",
+          price: 25000,
+          available: true
+        },
+        {
+          id: 3,
+          name: "Minecraft",
+          price: 15000,
+          available: false
+        },
+        {
+          id: 4,
+          name: "FIFA 25",
+          price: 28000,
+          available: true
+        },
+        {
+          id: 5,
+          name: "Spider-Man 2",
+          price: 35000,
+          available: false
+        }
+      ];
+
+      console.log(games);
+
+      const gamesName = games.map(function(games) {
+        return games.name;
+      });
+
+      console.log(gamesName);
+
+      const availableGames = games.filter(function(games) {
+        return games.available === true;
+      });
+
+      console.log(availableGames);
+
+      const specificGames = games.find(function(games) {
+        return games.name === "Spider-Man 2";
+      });
+
+      console.log(specificGames);
+
+      const totalPrice = games.reduce(function(total, games) {
+        return total + games.price;
+      }, 0);
+
+      console.log(totalPrice)
+
+      const updatedGame = {
+          ...games[1],
+          price: 20000
+        };
+
+      console.log(updatedGame);
+      console.log(games[1]);
+
+      const jsonGames = JSON.stringify(games);
+
+      console.log(jsonGames);
+
+      const normalGames = JSON.parse(jsonGames);
+
+      console.log(normalGames)
+  </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>loops</title>
+</head>
+<body>
+
+  <p id="demo"></p>
+
+  <script>
+
+    // Loops are programming structures that let you repeat a block of code multiple times without writing it over and over. They make programs shorter, easier to read, and more efficient.
+    
+    // There are different types of loops in JavaScript, including for loops, while loops, and do...while loops. Each type has its own syntax and use cases.
+
+    // 1. For Loop: A for loop is used when you know in advance how many times you want to execute a statement or a block of statements. It consists of three parts: initialization, condition, and increment/decrement.
+    // 2. While Loop: A while loop is used when you want to repeat a block of code as long as a specified condition is true. The condition is evaluated before each iteration.
+    // 3. Do...While Loop: A do...while loop is similar to a while loop, but it guarantees that the block of code will be executed at least once, as the condition is evaluated after the execution of the block.
+
+
+    // 4. For...In Loop: A for...in loop is used to iterate over the properties of an object. It allows you to access each property name (key) in the object.
+    // 5. For...Of Loop: A for...of loop is used to iterate over the values of an iterable object, such as an array or a string. It allows you to access each value in the iterable.
+    // 6. Nested Loops: Nested loops are loops that are placed inside another loop. They allow you to perform more complex iterations, such as iterating over a two-dimensional array or performing multiple levels of iteration.
+    // 7. Infinite Loops: An infinite loop is a loop that never ends. It can occur when the loop's condition is always true or when there is no exit condition. Infinite loops can cause a program to become unresponsive or crash, so they should be avoided or handled carefully.
+
+
+    // 1. for Loop Example:
+    for (let i = 0; i < 5; i++) {
+      console.log("This is iteration number: " + i);
+    }
+
+
+    const cars = ["BMW", "Volvo", "Saab", "Ford"];
+    let len = cars.length;
+
+    let text = "";
+    for (let i = 0; i < len; i++) {
+      text += cars[i] + "<br>";
+      console.log(cars[i]);
+    }
+
+    document.getElementById("demo").innerHTML = text;
+
+    for (let i = 0; i < 6; i++) {
+      console.log(i);
+    }
+
+    const fruits = ["apple", "banana", "cherry"];
+    for (let i = 0; i < fruits.length; i++) {
+      console.log(fruits[i]);
+    }
+
+
+
+    const frui = ["apple", "banana", "cherry"];
+    let lent = fruits.length;
+    let tex ="";
+
+    for (let i = 0; i < lent; i++) {
+      tex += frui[i] + "<br>";
+      console.log(frui[i]);
+    }
+
+    // 2. while Loop Example:
+    let j = 0;
+    while (j < 5) {
+      console.log("This is iteration number: " + j);
+      j++;
+    }
+
+    const puits = ["apple", "banana", "cherry"];
+    let k = 0;
+    while (k < puits.length) {
+      console.log(puits[k]);
+      k++;
+    }
+  </script>
+</body>
+</html>

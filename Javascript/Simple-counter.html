@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Counter</title>
+   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-slate-800 flex flex-col items-center justify-center gap-4 h-screen text-white">
+  
+  <section class="flex flex-col items-center justify-center gap-4 bg-white w-[300px] mx-auto rounded-xl">
+
+    <div class="flex flex-col items-center justify-center gap-4 pt-10">
+      <h1 class="text-[30px] font-bold text-slate-800">Counter App</h1>
+      <p class="text-lg text-black text-slate-800">Basic JavaScript Counter</p>
+    <span class="text-5xl font-bold text-blue-500" id="count">0</span>
+    <p id="message" class="text-red-500 font-semibold text-[12px]"></p>
+  </div>
+
+  <div class="flex gap-4 pb-2">
+    <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 rounded-full text-[25px] w-15 h-15 cursor-pointer" id="subBtn"
+      onclick="decrement()"
+    >-</button>
+
+    <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 rounded-full text-[25px] w-15 h-15 cursor-pointer" id="addBtn"
+      onclick="increment()"
+    >+</button>
+  </div>
+
+  <button class="bg-blue-500 text-white px-8 py-2 rounded hover:bg-blue-600 mb-6 cursor-pointer" id="resetBtn"
+    onclick="reset()"
+  >Reset</button>
+  </section>
+
+
+  <script>
+
+      let count = 0;
+      
+      let countEl = document.getElementById("count");
+      let addBtn = document.getElementById("addBtn");
+      let subBtn = document.getElementById("subBtn");
+      let messageEl = document.getElementById("message");
+
+      function updateCount() {
+        countEl.textContent = count;
+      }
+
+      function showMessage(text) {
+        messageEl.textContent = text;
+      }
+
+    function decrement() {
+      if(count > 0) {
+        count--;
+        showMessage("");
+      } else {
+        showMessage("Minimum count reached!.");
+      }
+      updateCount();
+    }
+
+    function increment() {
+      if (count < 10) {
+        count++;
+        showMessage("");
+      } else {
+        showMessage("Maximum count reached!.");
+      }
+      updateCount();
+    }
+
+    function reset () {
+      count = 0;
+      showMessage("counter was reset!");
+      updateCount();
+    }
+  </script>
+</body>
+</html>

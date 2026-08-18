@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculator</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+
+<body class="p-10">
+
+  <div class="flex items-center gap-5">
+
+    <input type="number" id="num1" class="w-20 h-10 border-2 border-black text-center text-2xl">
+
+    <span class="text-3xl">+</span>
+
+    <input type="number" id="num2" class="w-20 h-10 border-2 border-black text-center text-2xl">
+
+    <span class="text-3xl">=</span>
+
+    <span id="result" class="w-20 h-10 border-2 border-black flex items-center justify-center text-2xl">0</span>
+
+    <button onclick="calculate()" class="px-5 py-3 bg-black text-white rounded-lg hover:bg-gray-700 cursor-pointer">Calculate</button>
+
+  </div>
+
+
+  <script>
+
+    function calculate() {
+
+      let num1 = Number(document.getElementById("num1").value);
+      let num2 = Number(document.getElementById("num2").value);
+
+      let answer = num1 + num2;
+
+      document.getElementById("result").innerHTML = answer;
+
+    }
+
+    let num1 = document.getElementById('num1');
+    let num2 = document.getElementById('num2');
+
+    let result = document.getElementById('result')
+    
+    function calculate() {
+      let number1 = Number(num1.value);
+      let number2 = Number(num2.value);
+
+      let answer = number1 + number2;
+
+      result.innerHTML = answer
+    }
+  </script>
+
+</body>
+</html>

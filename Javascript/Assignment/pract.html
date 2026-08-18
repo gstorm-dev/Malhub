@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Shopping List</title>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen py-10 px-5">
+
+  <div class="max-w-xl mx-auto">
+
+    <div class="text-center mb-8">
+
+      <h1 class="text-4xl font-bold text-gray-800">🛒 Shopping List</h1>
+
+      <p class="text-gray-500 mt-2">Add products and keep track of your total</p>
+
+    </div>
+
+    <form id="productForm" class="bg-white p-5 rounded-2xl shadow-md flex gap-3 mb-6">
+
+      <input type="text" id="productName" placeholder="Product name" required class="w-full border border-gray-300 rounded-lg px-3 py-3 outline-none focus:border-indigo-500">
+
+      <input type="number" id="productPrice" placeholder="Price" required class="w-32 border border-gray-300 rounded-lg px-3 py-3 outline-none focus:border-indigo-500">
+
+      <button type="submit" class="bg-indigo-600 text-white px-5 rounded-lg font-semibold hover:bg-indigo-700 transition">Add</button>
+
+    </form>
+
+    <ul id="productList" class="space-y-3">
+
+    </ul>
+
+    <div class="mt-6 bg-indigo-600 text-white p-5 rounded-2xl shadow-lg flex justify-between items-center">
+
+      <h2 class="text-lg font-semibold">Total Price</h2>
+
+      <span class="text-2xl font-bold">
+        ₦<span id="total">0</span>
+      </span>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    // Starter products
+
+    let products = [
+      { name: "Bread", price: 1000 },
+      { name: "Milk", price: 1500 },
+      { name: "Eggs", price: 2000 },
+      { name: "Rice", price: 5000 }
+    ];
+
+
+    let productList = document.getElementById("productList");
+
+    let total = document.getElementById("total");
+
+    let form = document.getElementById("productForm");
+
+
+    // Display products
+
+    function displayProducts() {
+
+      productList.innerHTML = "";
+
+      for (let i = 0; i < products.length; i++) {
+
+        let item = document.createElement("li");
+
+        item.className =
+          "bg-white p-4 rounded-xl shadow-sm flex justify-between items-center hover:shadow-md transition";
+
+
+        item.innerHTML = `
+
+          <div>
+
+            <span class="font-semibold text-gray-800">
+              ${products[i].name}
+            </span>
+
+            <span class="text-indigo-600 font-bold ml-2">
+              ₦${products[i].price}
+            </span>
+
+          </div>
+
+
+          <button
+            onclick="deleteProduct(${i})"
+            class="bg-red-100 text-red-600 px-3 py-2 rounded-lg hover:bg-red-200 transition">
+             Delete
+          </button>
+
+        `;
+
+
+        productList.appendChild(item);
+      }
+
+      calculateTotal();
+    }
+
+
+    // Calculate total using reduce()
+
+    function calculateTotal() {
+
+      let totalPrice = products.reduce(function(sum, product) {
+
+        return sum + product.price;
+
+      }, 0);
+
+
+      total.innerHTML = totalPrice;
+    }
+
+
+    // Delete product
+
+    function deleteProduct(index) {
+
+      products.splice(index, 1);
+
+      displayProducts();
+    }
+
+
+    // Callback function
+
+    function highlightItem(item) {
+
+      item.classList.add("bg-green-200");
+
+
+      setTimeout(function() {
+
+        item.classList.remove("bg-green-200");
+
+      }, 1000);
+    }
+
+
+    // Add product
+
+    form.onsubmit = function(event) {
+
+      event.preventDefault();
+
+
+      let name =
+        document.getElementById("productName").value;
+
+
+      let price =
+        Number(document.getElementById("productPrice").value);
+
+
+      // Add product to array
+
+      products.push({
+        name: name,
+        price: price
+      });
+
+
+      // Create the new item
+
+      let item = document.createElement("li");
+
+
+      item.className =
+        "bg-white p-4 rounded-xl shadow-sm flex justify-between items-center transition";
+
+
+      item.innerHTML = `
+
+        <div>
+
+          <span class="font-semibold text-gray-800">
+            ${name}
+          </span>
+
+          <span class="text-indigo-600 font-bold ml-2">
+            ₦${price}
+          </span>
+
+        </div>
+
+
+        <button
+          onclick="deleteProduct(${products.length - 1})"
+          class="bg-red-100 text-red-600 px-3 py-2 rounded-lg hover:bg-red-200 transition"
+        >
+          Delete
+        </button>
+
+      `;
+
+
+      productList.appendChild(item);
+
+
+      // Recalculate total
+
+      calculateTotal();
+
+
+      // Wait 1 second before highlighting
+
+      setTimeout(function() {
+
+        highlightItem(item);
+
+      }, 1000);
+
+
+      // Clear inputs
+
+      form.reset();
+    };
+
+
+    // Show starter products
+
+    displayProducts();
+
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="flex items-center justify-center bg-gray-200" id="body">
+
+  <div class="bg-white p-8 rounded-2xl shadow-xl w-100 text-center">
+
+    <h1 class="text-3xl font-bold py-4" id="heading">Welcome</h1>
+
+    <p class="text-[16px] text-gray-600 pb-6" id="message">Click the buttons below to practice DOM Manipulation.</p>
+
+    <div class="grid grid-cols-2 gap-2 items-center ">
+      <button  class="bg-blue-600 text-white py-3 rounded-lg" id="changeHeading">Change Heading</button>
+
+      <button class="bg-green-600 text-white text-[16px] p-3 rounded-lg" id="changeText">Change Paragraph</button>
+
+      <button  class="bg-gray-900 text-white py-3 rounded-lg" id="darkMode">Dark Mode</button>
+
+      <button  class="bg-yellow-400 py-3 rounded-lg" id="lightMode">Light Mode</button>
+
+    </div>
+    
+  </div>
+  
+  <script>
+
+    let page = document.getElementById("body");
+    let heading = document.getElementById("heading");
+    let paragraph = document.getElementById("message");
+    
+    let changeHeading = document.getElementById("changeHeading");
+    let changeText = document.getElementById("changeText");
+    let darkMode = document.getElementById("darkMode");
+    let lightMode = document.getElementById("lightMode")
+
+
+    changeHeading.addEventListener("click", () => {
+      heading.textContent = "Dom Manipulation";
+    })
+
+    changeText.addEventListener("click", () => {
+      message.textContent = "JavaScript is changing this paragraph using a parameter!";
+      message.classList.toggle("text-red-500")
+    });
+
+    darkMode.addEventListener("click", () => {
+      document.body.style.backgroundColor = "#111827";
+    });
+
+    lightMode.addEventListener("click", () => {
+      document.body.style.backgroundColor = "white";
+    })
+    
+
+  </script>
+</body>
+</html>

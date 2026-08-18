@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+  
+  <div class="bg-white p-8 rounded-xl shadow-lg text-center w-80">
+    <h1 class="text-2xl font-bold mb-4">Order System</h1>
+
+    <p class="mb-6 text-gray-700" id="process">Click here to order now</p>
+
+    <button class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg" id="orderButton">Order Now</button>
+  </div>
+  
+  <script>
+
+    let process = document.getElementById('process');
+    let button = document.getElementById('orderButton');
+
+
+    function processOrder(callback) {
+
+      console.log("Processing order...");
+
+      setTimeout(() => {
+        callback();
+      }, 2000);
+
+    }
+
+
+    orderButton.addEventListener("click", () => {
+      process.textContent = "Please wait..";
+
+      processOrder(orderComplete);
+    });
+
+    function orderComplete() {
+      console.log("Order complete! ✅");
+      process.textContent = "Order completed! ✅";
+    }
+  </script>
+</body>
+</html>

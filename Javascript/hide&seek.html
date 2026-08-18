@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hide and Seek</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+  
+    <div class="flex flex-col items-center justify-center gap-4 w-[300px] mx-auto rounded-xl p-4 mt-10 bg-slate-800">
+
+      <h1 class="text-[30px] font-bold text-white">Hide and Seek</h1>
+      <p class="text-[10px] text-white text-center">Click the button below to hide or show the text provided by JavaScript.</p>
+      <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 cursor-pointer" id="toggleBtn" onclick="
+        toggleText()
+      ">Toggle Text</button>
+      <p id="text" class="text-white text-center">This is the text that will be hidden or shown.</p>
+      
+    </div>
+  <script>
+
+    function hideText() {
+      document.getElementById("text").style.display = "none";
+    }
+
+    function showText() {
+      document.getElementById("text").style.display = "block";
+    }
+
+    function toggleText() {
+      const textEl = document.getElementById("text");
+      if (textEl.style.display === "none") {
+        showText();
+      } else {
+        hideText();
+      }
+    }
+  </script>
+</body>
+</html>
